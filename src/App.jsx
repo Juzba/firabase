@@ -1,11 +1,15 @@
-import "./App.scss"
+import './App.scss';
 import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc,doc } from 'firebase/firestore';
 import { projectFirestore } from './firebase/config';
 
 const App = () => {
     const [error, setError] = useState(false);
     const [data, setData] = useState(false);
+
+    const deleteMovie = async(id) => {
+        await deleteDoc(doc(projectFirestore, "movies", id))
+    };
 
     useEffect(() => {
         const usersCollection = collection(projectFirestore, 'movies');
@@ -29,7 +33,8 @@ const App = () => {
                 data.map(({ id, title, minage, time }) => {
                     return (
                         <section key={id}>
-                            <h2>{`${title},  ${minage}+,  ${time}min`}</h2>
+                            <p>{`${title},  ${minage}+,  ${time}min`}</p>
+                            <button onClick={() => deleteMovie(id)}>Smazat</button>
                         </section>
                     );
                 })
