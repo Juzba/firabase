@@ -1,0 +1,21 @@
+.app{
+    height: 80vh;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+section{
+    background: linear-gradient(45deg, #141414, rgb(58, 57, 57));
+    min-width: 300px;
+    border: 1px solid red;
+    box-shadow: 0 0 15px red;
+    margin: 15px;
+    padding: 0 15px;
+}
+
+
+
+}

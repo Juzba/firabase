@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyAAmoOli_HlMmQNf-7vOP8dDfi18I-J0-0',
@@ -11,9 +11,9 @@ const firebaseConfig = {
 };
 
 // počatečni nastaveni firebase(init)
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
 // počáteční nastavení služeb (services)
-const projectFirestore = firebase.firestore();
+const projectFirestore = getFirestore(firebaseApp);
 
 export { projectFirestore };
